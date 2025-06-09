@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -26,9 +22,11 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "../SavedFiles/chatbot_frontend_Separated/index.ts",
+    "../SavedFiles/chatbot_frontend_Separated/types.ts",
+    "../SavedFiles/chatbot_frontend_Separated/config.ts",
+    "../SavedFiles/chatbot_frontend_Separated/ChatInterface.tsx"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
