@@ -1,10 +1,10 @@
-// app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
+import "./Vazirmatn-font-face.css";
 
 export const metadata: Metadata = {
-  title: "AI Chat Interface",
-  description: "A customizable AI chat interface",
+  title: "دستیار هوشمند ایرانی",
+  description: "چت بات هوشمند با پشتیبانی کامل از زبان فارسی",
 };
 
 export default function RootLayout({
@@ -13,8 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-gray-50 dark:bg-gray-900">{children}</body>
+    <html lang="fa" dir="rtl">
+      <body className="bg-gray-50 dark:bg-gray-900 font-[Vazirmatn]">
+        {children}
+      </body>
     </html>
   );
 }
