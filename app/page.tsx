@@ -6,6 +6,7 @@ import { Message, Chat } from "./types";
 import ChatMessage from "./components/ChatMessage";
 import ChatSidebar from "./components/ChatSidebar";
 import ChatInput from "./components/ChatInput";
+import { toast } from "sonner";
 
 export default function ChatInterface() {
   const [chats, setChats] = useState<Chat[]>([]);
@@ -158,7 +159,12 @@ export default function ChatInterface() {
       });
 
       if (!response.ok) {
-        throw new Error(`خطای API: ${response.status} ${response.statusText}`);
+        const errorText = await response.text(); // دریافت پیام از سرور اگه باشه
+        // toast.error(`❌ خطا در ارتباط با سرور: ${response.status}`);
+        toast.error(
+          "در دریافت پاسخ از سرور مشکلی پیش آمده. لطفاً بعداً تلاش کنید."
+        );
+        throw new Error(errorText || `API error: ${response.status}`);
       }
 
       const data = await response.json();
@@ -181,18 +187,25 @@ export default function ChatInterface() {
         )
       );
     } catch (error) {
-      const errorMessage: Message = {
+      console.error("❌ خطای ارسال پیام:", error); // برای لاگ دقیق
+
+      // پیام انسانی و دوستانه
+      const userFriendlyError =
+        "در دریافت پاسخ از سرور مشکلی پیش آمده. لطفاً بعداً تلاش کنید.";
+
+      // toast.error(userFriendlyError);
+
+      const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
-        content: `خطا: ${
-          error instanceof Error ? error.message : "خطای نامشخص"
-        }`,
+        content: `⚠️ ${userFriendlyError}`,
         timestamp: new Date(),
       };
+
       setChats((prev) =>
         prev.map((chat) =>
           chat.id === chatId
-            ? { ...chat, messages: [...chat.messages, errorMessage] }
+            ? { ...chat, messages: [...chat.messages, assistantMessage] }
             : chat
         )
       );

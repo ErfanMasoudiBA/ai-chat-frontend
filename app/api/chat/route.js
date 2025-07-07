@@ -3,6 +3,7 @@ export const runtime = "edge";
 export async function POST(request) {
   try {
     const body = await request.json();
+    // console.log("📥 Received body:", body);
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
