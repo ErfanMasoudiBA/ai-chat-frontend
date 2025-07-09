@@ -4,17 +4,9 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 
-// interface ChatInputProps {
-//   input: string;
-//   setInput: (value: string) => void;
-//   onSendMessage: () => void;
-//   isLoading: boolean;
-//   hasMessages: boolean;
-// }
-
 interface ChatInputProps {
   input: string;
-  setInput: React.Dispatch<React.SetStateAction<string>>;
+  setInput: (value: string) => void;
   onSendMessage: () => void;
   isLoading: boolean;
   hasMessages: boolean;
@@ -65,7 +57,7 @@ export default function ChatInput({
           const result = event.results[i];
           if (result.isFinal) finalTranscript += result[0].transcript;
         }
-        if (finalTranscript) setInput((prev) => prev + finalTranscript + " ");
+        if (finalTranscript) setInput(input + finalTranscript + " ");
       };
 
       recognition.onerror = () => {
