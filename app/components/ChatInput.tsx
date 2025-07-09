@@ -4,9 +4,17 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 
+// interface ChatInputProps {
+//   input: string;
+//   setInput: (value: string) => void;
+//   onSendMessage: () => void;
+//   isLoading: boolean;
+//   hasMessages: boolean;
+// }
+
 interface ChatInputProps {
   input: string;
-  setInput: (value: string) => void;
+  setInput: React.Dispatch<React.SetStateAction<string>>;
   onSendMessage: () => void;
   isLoading: boolean;
   hasMessages: boolean;
@@ -34,6 +42,8 @@ export default function ChatInput({
   }, [hasMessages]);
 
   useEffect(() => {
+    if (recognitionRef.current) return; // ✅ فقط یکبار مقداردهی
+
     const SpeechRecognition =
       (window as any).SpeechRecognition ||
       (window as any).webkitSpeechRecognition;
@@ -55,7 +65,7 @@ export default function ChatInput({
           const result = event.results[i];
           if (result.isFinal) finalTranscript += result[0].transcript;
         }
-        if (finalTranscript) setInput(input + finalTranscript + " ");
+        if (finalTranscript) setInput((prev) => prev + finalTranscript + " ");
       };
 
       recognition.onerror = () => {
