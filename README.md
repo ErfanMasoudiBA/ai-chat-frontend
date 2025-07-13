@@ -1,4 +1,4 @@
-```markdown
+
 # 🧠 AI Chat Interface with Conversations Panel
 
 An elegant and modern React + TypeScript chat interface powered by OpenAI, designed with user experience in mind. The app provides a clean side panel for managing conversations, smooth animations for interaction, and persistent chat history stored locally.
@@ -19,7 +19,7 @@ An elegant and modern React + TypeScript chat interface powered by OpenAI, desig
 
 ## 🏗️ Project Structure
 
-```
+
 /app
   /chat              # Main chat UI and layout
 /components
@@ -31,11 +31,11 @@ An elegant and modern React + TypeScript chat interface powered by OpenAI, desig
   useChatStore.ts    # Zustand store for chat management
 /styles
   globals.css        # Tailwind and custom styles
-```
+
 
 ## ⚙️ Installation
 
-```bash
+
 # 1. Clone the repo
 git clone https://github.com/ErfanMasoudiBA/ai-chat-frontend.git
 cd ai-chat-frontend
@@ -45,7 +45,7 @@ npm install
 
 # 3. Run locally
 npm run dev
-```
+
 
 Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
