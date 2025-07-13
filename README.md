@@ -53,7 +53,7 @@ Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 🚀 How It Works
 
-- Conversations are stored in a local store (`Zustand`) and persisted via `localStorage`.
+- Conversations are stored in a local store and persisted via `localStorage`.
 - When you delete a conversation, it first animates (fades/shrinks) before actually disappearing.
 - Grouping is based on the date of last interaction (`Today`, `Yesterday`, etc.).
 - `onSwitchToChat` sets the active chat ID and renders it in the main view.
