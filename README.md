@@ -12,11 +12,6 @@ An elegant and modern React + TypeScript chat interface powered by OpenAI, desig
 - 📱 Responsive and clean design
 - ⚙️ Easy to integrate with any backend or OpenAI API
 
-## 📸 Preview
-
-![Chat Interface Screenshot](./public/preview.png)  
-*Clean and intuitive user interface*
-
 ## 🏗️ Project Structure
 
 
