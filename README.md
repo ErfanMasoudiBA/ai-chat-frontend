@@ -12,22 +12,6 @@ An elegant and modern React + TypeScript chat interface powered by OpenAI, desig
 - 📱 Responsive and clean design
 - ⚙️ Easy to integrate with any backend or OpenAI API
 
-## 🏗️ Project Structure
-
-
-/app
-  /chat              # Main chat UI and layout
-/components
-  ChatItem.tsx       # Renders individual chat rows
-  ChatList.tsx       # Renders chat groups
-  ChatInput.tsx      # Message input box
-  ChatHeader.tsx     # Header with trash and back buttons
-/hooks
-  useChatStore.ts    # Zustand store for chat management
-/styles
-  globals.css        # Tailwind and custom styles
-
-
 ## ⚙️ Installation
 
 
